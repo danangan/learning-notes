@@ -140,6 +140,12 @@ Pro: Allows control with higher throughput
 Cons: Weaker guarantee than async method
 Best for high throughput system that can handle occassional duplicates
 
+# Deployment
+
+## Bare machine deployment
+
+## Kubernetes
+
 ## Putting it into practice
 
 ### Case study: Food delivery service
