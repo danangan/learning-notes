@@ -16,7 +16,7 @@ Collection of kafka server/node.
 
 ### Topic
 
-Messages in Kafka is sent into a topic. Topic is defined using an ID. Message producer send message into a topic, and message consumer could subcribe into a topic to receive message.
+Messages in Kafka is sent into a topic. Topic is defined using an string id. Message producer send message into a topic, and message consumer could subcribe into a topic to receive message.
 
 ### Message
 
@@ -42,6 +42,10 @@ With the offset mechanism, it allows:
 Offset is unique in each topic partition, meaning they are not shared across topic partition.
 
 Offset is tracked within a consumer group. The offset is stored within an internal Kafka topic.
+
+Note:
+
+Consuming a topic with a new consumer can be computationally heavy as it'll need to read the topic from the beginning.
 
 #### Topic partition
 
@@ -126,6 +130,9 @@ while (true) {
     for (ConsumerRecord<String, String> record : records) {
         processRecord(record);
     }
+
+    // call api here
+
     consumer.commitSync(); // Blocks until commit succeeds or fails
 }
 ```
